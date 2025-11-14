@@ -171,15 +171,15 @@ export default function SwiimNanoPage() {
               </div>
 
               {/* Loading text */}
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">
+              <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 px-4">
                 Chargement...
               </h2>
-              <p className="text-lg text-gray-600 mb-8">
+              <p className="text-base sm:text-lg text-gray-600 mb-8 px-4">
                 Voici à quoi pourrait ressembler votre ticket.
               </p>
 
               {/* Preview ticket card */}
-              <div className="max-w-md mx-auto bg-white rounded-2xl shadow-xl border border-gray-200 p-6 animate-pulse-slow">
+              <div className="max-w-md mx-auto bg-white rounded-2xl shadow-xl border border-gray-200 p-4 sm:p-6 animate-pulse-slow">
                 <div className="text-center border-b border-gray-200 pb-4 mb-4">
                   <h3 className="text-lg font-bold text-gray-900">Boulangerie</h3>
                   <p className="text-sm text-gray-500 mt-1">{formattedDate} à {formattedTime}</p>
@@ -224,13 +224,13 @@ export default function SwiimNanoPage() {
           <div className="animate-fadeIn">
             {/* Success message */}
             <div className="mb-8 bg-white rounded-2xl shadow-lg shadow-gray-200/70 p-6 sm:p-8 text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 mb-4">
-                <span className="text-3xl">✓</span>
+              <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-green-100 mb-4">
+                <span className="text-2xl sm:text-3xl">✓</span>
               </div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-2">
+              <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
                 Votre ticket est prêt !
               </h2>
-              <p className="text-gray-600 mb-4">
+              <p className="text-sm sm:text-base text-gray-600 mb-4">
                 Remplissez le formulaire ci-dessous pour le recevoir par email et commencer à gagner des points fidélité.
               </p>
             </div>
@@ -260,19 +260,15 @@ export default function SwiimNanoPage() {
                 </div>
 
                 {/* Google Form Embed - Premium Crop + Scale */}
-                <div className="mt-8 rounded-2xl bg-white p-6 shadow-lg shadow-gray-200/70 border border-gray-100">
-                  <div
-                    className="relative overflow-hidden rounded-xl"
-                    style={{ height: "700px" }}
-                  >
+                <div className="mt-8 rounded-2xl bg-white p-3 sm:p-6 shadow-lg shadow-gray-200/70 border border-gray-100">
+                  <div className="relative overflow-hidden rounded-xl h-[600px] sm:h-[700px]">
                     <iframe
                       src="https://docs.google.com/forms/d/e/1FAIpQLSe8VFynsOWsgQsCKpCu7hEOhTLFXZRub6sjdRdK3LpPqWle1w/viewform?embedded=true"
+                      className="w-full border-0"
                       style={{
-                        transform: "scale(0.95)",
+                        transform: "scale(0.98)",
                         transformOrigin: "top center",
-                        width: "100%",
-                        height: "1000px",
-                        border: "none",
+                        height: "950px",
                       }}
                       title="Formulaire de récupération de ticket"
                     />
