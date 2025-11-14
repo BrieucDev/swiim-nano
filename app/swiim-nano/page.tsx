@@ -261,14 +261,15 @@ export default function SwiimNanoPage() {
 
                 {/* Google Form Embed - Premium Crop + Scale */}
                 <div className="mt-8 rounded-2xl bg-white p-3 sm:p-6 shadow-lg shadow-gray-200/70 border border-gray-100">
-                  <div className="relative overflow-hidden rounded-xl h-[600px] sm:h-[700px]">
+                  <div className="relative overflow-auto rounded-xl h-[700px] sm:h-[750px] md:h-[800px]">
                     <iframe
                       src="https://docs.google.com/forms/d/e/1FAIpQLSe8VFynsOWsgQsCKpCu7hEOhTLFXZRub6sjdRdK3LpPqWle1w/viewform?embedded=true"
                       className="w-full border-0"
                       style={{
-                        transform: "scale(0.98)",
+                        transform: "scale(1)",
                         transformOrigin: "top center",
-                        height: "950px",
+                        height: "1100px",
+                        minHeight: "1100px",
                       }}
                       title="Formulaire de récupération de ticket"
                     />
