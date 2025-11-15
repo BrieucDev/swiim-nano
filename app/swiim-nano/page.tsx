@@ -7,18 +7,6 @@ type View = 'steps' | 'loading' | 'form'
 export default function SwiimNanoPage() {
   const [view, setView] = useState<View>('steps')
 
-  // Load Typeform script
-  useEffect(() => {
-    const script = document.createElement('script')
-    script.src = '//embed.typeform.com/next/embed.js'
-    script.async = true
-    document.body.appendChild(script)
-
-    return () => {
-      document.body.removeChild(script)
-    }
-  }, [])
-
   // Generate current date and time for receipt
   const currentDate = new Date()
   const formattedDate = currentDate.toLocaleDateString('fr-FR', { 
@@ -280,8 +268,20 @@ export default function SwiimNanoPage() {
 
                 {/* Typeform Embed */}
                 <div className="mt-8 rounded-2xl bg-white p-3 sm:p-6 shadow-lg shadow-gray-200/70 border border-gray-100">
-                  <div className="relative rounded-xl min-h-[500px]">
-                    <div data-tf-live="01KA42MZS3BF1QRRSJZXBYG5Y3"></div>
+                  <div className="relative overflow-hidden rounded-xl" style={{ height: '600px' }}>
+                    <iframe
+                      src="https://form.typeform.com/to/01KA42MZS3BF1QRRSJZXBYG5Y3?typeform-medium=embed-snippet"
+                      style={{
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        width: '100%',
+                        height: '100%',
+                        border: 0,
+                      }}
+                      allow="camera; microphone; autoplay; encrypted-media;"
+                      title="Formulaire Swiim"
+                    />
                   </div>
                 </div>
               </div>
