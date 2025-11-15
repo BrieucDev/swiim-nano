@@ -1,12 +1,22 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import Script from 'next/script'
 
 type View = 'steps' | 'loading' | 'form'
 
 export default function SwiimNanoPage() {
   const [view, setView] = useState<View>('steps')
+
+  // Load Tally script
+  useEffect(() => {
+    if (view === 'form') {
+      const script = document.createElement('script')
+      script.innerHTML = `
+        var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}
+      `
+      document.body.appendChild(script)
+    }
+  }, [view])
 
   // Generate current date and time for receipt
   const currentDate = new Date()
@@ -267,13 +277,22 @@ export default function SwiimNanoPage() {
                   </div>
                 </div>
 
-                {/* Typeform Embed */}
+                {/* Tally Form Embed */}
                 <div className="mt-8 rounded-2xl bg-white p-3 sm:p-6 shadow-lg shadow-gray-200/70 border border-gray-100">
-                  <div className="relative rounded-xl min-h-[600px]">
-                    <div data-tf-live="01KA42MZS3BF1QRRSJZXBYG5Y3"></div>
+                  <div className="relative rounded-xl overflow-hidden">
+                    <iframe 
+                      data-tally-src="https://tally.so/embed/7RRKo2?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" 
+                      loading="lazy" 
+                      width="100%" 
+                      height="400" 
+                      frameBorder="0" 
+                      marginHeight={0}
+                      marginWidth={0}
+                      title="Recevez votre ticket numérique"
+                      className="w-full"
+                    />
                   </div>
                 </div>
-                <Script src="//embed.typeform.com/next/embed.js" strategy="lazyOnload" />
               </div>
             </section>
           </div>
