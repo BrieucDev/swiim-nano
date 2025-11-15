@@ -78,93 +78,42 @@ export default function SwiimNanoPage() {
       </header>
 
       <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-        {/* VIEW 1: STEPS */}
+        {/* VIEW 1: INTRO */}
         {view === 'steps' && (
           <div className="animate-fadeIn">
-            {/* Hero Section */}
-            <section className="text-center mb-12">
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-                Recevez votre ticket numérique & vos points fidélité
-              </h1>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-12">
-                Scannez le QR code à la caisse, entrez votre email, et recevez votre ticket plus des points fidélité pour votre prochaine visite.
-              </p>
+            {/* Hero Section - Minimal & Action-Focused */}
+            <section className="text-center py-12 sm:py-16">
+              <div className="max-w-2xl mx-auto space-y-6">
+                {/* Title */}
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+                  Recevez votre ticket numérique & vos points fidélité
+                </h1>
 
-              {/* 3-Step Flow */}
-              <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6 mb-12">
-                {/* Step 1 */}
-                <div className="flex items-center gap-3 bg-white rounded-full px-5 py-3 shadow-sm border border-gray-100 hover:shadow-md transition">
-                  <span className="text-2xl">📱</span>
-                  <div className="text-left">
-                    <div className="text-xs font-semibold text-gray-500">ÉTAPE 1</div>
-                    <div className="text-sm font-medium text-gray-900">Scannez le QR code</div>
-                  </div>
-                </div>
-
-                {/* Arrow */}
-                <div className="hidden sm:block text-gray-300 text-2xl">→</div>
-
-                {/* Step 2 */}
-                <div className="flex items-center gap-3 bg-white rounded-full px-5 py-3 shadow-sm border border-gray-100 hover:shadow-md transition">
-                  <span className="text-2xl">✉️</span>
-                  <div className="text-left">
-                    <div className="text-xs font-semibold text-gray-500">ÉTAPE 2</div>
-                    <div className="text-sm font-medium text-gray-900">Entrez votre email</div>
-                  </div>
-                </div>
-
-                {/* Arrow */}
-                <div className="hidden sm:block text-gray-300 text-2xl">→</div>
-
-                {/* Step 3 */}
-                <div className="flex items-center gap-3 bg-white rounded-full px-5 py-3 shadow-sm border border-gray-100 hover:shadow-md transition">
-                  <span className="text-2xl">🎁</span>
-                  <div className="text-left">
-                    <div className="text-xs font-semibold text-gray-500">ÉTAPE 3</div>
-                    <div className="text-sm font-medium text-gray-900">Recevez ticket + points</div>
-                  </div>
-                </div>
-              </div>
-
-              {/* CTA Button */}
-              <button
-                onClick={handleGetReceipt}
-                className="inline-flex items-center gap-2 bg-swiim-accent hover:bg-[#b3e605] text-gray-900 font-bold px-10 py-5 rounded-full transition duration-150 shadow-lg hover:shadow-xl transform hover:scale-[1.02] text-lg"
-              >
-                <span>Récupérer votre reçu</span>
-                <span className="text-xl">→</span>
-              </button>
-            </section>
-
-            {/* How it works */}
-            <section className="bg-white rounded-2xl shadow-lg shadow-gray-200/70 p-6 sm:p-8">
-              <div className="max-w-2xl mx-auto">
-                <h2 className="text-xl font-bold text-gray-900 mb-4 text-center">Comment ça marche ?</h2>
-                
-                <p className="text-gray-600 mb-6 text-center">
-                  Scannez le QR code à la caisse, ouvrez cette page puis remplissez le formulaire pour recevoir votre ticket par email et gagner des points fidélité.
+                {/* Subtitle */}
+                <p className="text-base sm:text-lg text-gray-600 max-w-xl mx-auto">
+                  Vous venez de payer en caisse. Cliquez ci-dessous pour recevoir votre ticket par email et activer vos points fidélité.
                 </p>
 
-                {/* How it works list */}
-                <div className="space-y-4 max-w-md mx-auto">
-                  <div className="flex items-start gap-3">
-                    <div className="flex-shrink-0 w-7 h-7 rounded-full bg-swiim-accent flex items-center justify-center">
-                      <span className="text-sm font-bold text-gray-900">1</span>
-                    </div>
-                    <div>
-                      <p className="text-sm font-medium text-gray-900">Entrez votre email</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-3">
-                    <div className="flex-shrink-0 w-7 h-7 rounded-full bg-swiim-accent flex items-center justify-center">
-                      <span className="text-sm font-bold text-gray-900">2</span>
-                    </div>
-                    <div>
-                      <p className="text-sm font-medium text-gray-900">Choisissez si vous voulez des offres et des points fidélité</p>
-                    </div>
-                  </div>
+                {/* Primary CTA */}
+                <div className="pt-4">
+                  <button
+                    onClick={handleGetReceipt}
+                    className="inline-flex items-center justify-center rounded-full bg-[#C7FF06] px-8 py-4 text-base font-semibold text-gray-900 shadow-lg shadow-[#C7FF06]/40 hover:shadow-xl hover:shadow-[#C7FF06]/50 transition duration-150 w-full sm:w-auto hover:scale-[1.02] transform"
+                  >
+                    <span>Récupérer mon ticket</span>
+                    <span className="ml-2">→</span>
+                  </button>
                 </div>
+
+                {/* Micro-copy */}
+                <p className="text-xs text-gray-500 mt-3">
+                  Vous pourrez fermer la page dès que votre demande est envoyée.
+                </p>
+
+                {/* Data safety line */}
+                <p className="text-[11px] text-gray-400 mt-1">
+                  Vos données sont utilisées uniquement pour vous envoyer votre ticket et vos points.
+                </p>
               </div>
             </section>
           </div>
