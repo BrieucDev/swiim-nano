@@ -73,10 +73,6 @@ export default function SwiimNanoPage() {
               <span className="text-2xl font-bold text-gray-900">swiim</span>
               <span className="inline-block w-1.5 h-1.5 rounded-full bg-swiim-accent ml-1"></span>
             </div>
-            {/* Demo label */}
-            <div className="text-sm text-gray-500">
-              Démo commerçant · Prototype
-            </div>
           </div>
         </div>
       </header>
@@ -255,43 +251,20 @@ export default function SwiimNanoPage() {
 
             {/* Form Section */}
             <section id="form-section">
-              <div className="bg-white rounded-2xl shadow-md shadow-gray-200/70 p-6 sm:p-8">
-                <h2 className="text-base font-semibold text-gray-900 mb-2">
-                  Formulaire sécurisé
-                </h2>
-                
-                <p className="text-sm text-gray-500 mb-4">
-                  Remplissez ce formulaire pour recevoir votre ticket numérique par email et commencer à cumuler des points fidélité.
-                </p>
-
-                {/* Security Card */}
-                <div className="mb-6 flex items-start gap-3 rounded-xl border border-gray-200 bg-gray-50 p-3">
-                  <div className="mt-0.5 flex h-7 w-7 items-center justify-center rounded-full bg-swiim-accent/10">
-                    <span className="text-sm">🔒</span>
-                  </div>
-                  <div className="text-sm text-gray-700">
-                    <p className="font-medium">Vos données sont protégées</p>
-                    <p className="text-xs text-gray-500">
-                      Votre email et vos informations sont utilisés uniquement pour vous envoyer votre ticket et vos points. Elles ne sont jamais revendues.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Tally Form Embed */}
-                <div className="mt-8 rounded-2xl bg-white p-3 sm:p-6 shadow-lg shadow-gray-200/70 border border-gray-100">
-                  <div className="relative rounded-xl overflow-hidden">
-                    <iframe 
-                      data-tally-src="https://tally.so/embed/7RRKo2?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" 
-                      loading="lazy" 
-                      width="100%" 
-                      height="400" 
-                      frameBorder="0" 
-                      marginHeight={0}
-                      marginWidth={0}
-                      title="Recevez votre ticket numérique"
-                      className="w-full"
-                    />
-                  </div>
+              {/* Tally Form Embed */}
+              <div className="rounded-2xl bg-white p-3 sm:p-6 shadow-lg shadow-gray-200/70 border border-gray-100">
+                <div className="relative rounded-xl overflow-hidden">
+                  <iframe 
+                    data-tally-src="https://tally.so/embed/7RRKo2?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" 
+                    loading="lazy" 
+                    width="100%" 
+                    height="400" 
+                    frameBorder="0" 
+                    marginHeight={0}
+                    marginWidth={0}
+                    title="Recevez votre ticket numérique"
+                    className="w-full"
+                  />
                 </div>
               </div>
             </section>
