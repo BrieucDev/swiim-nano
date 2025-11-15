@@ -7,6 +7,18 @@ type View = 'steps' | 'loading' | 'form'
 export default function SwiimNanoPage() {
   const [view, setView] = useState<View>('steps')
 
+  // Load Typeform script
+  useEffect(() => {
+    const script = document.createElement('script')
+    script.src = '//embed.typeform.com/next/embed.js'
+    script.async = true
+    document.body.appendChild(script)
+
+    return () => {
+      document.body.removeChild(script)
+    }
+  }, [])
+
   // Generate current date and time for receipt
   const currentDate = new Date()
   const formattedDate = currentDate.toLocaleDateString('fr-FR', { 
@@ -38,6 +50,13 @@ export default function SwiimNanoPage() {
     if (view === 'loading') {
       const timer = setTimeout(() => {
         setView('form')
+        // Scroll to form section after transition
+        setTimeout(() => {
+          const formSection = document.getElementById('form-section')
+          if (formSection) {
+            formSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+          }
+        }, 500)
       }, 2000)
       
       return () => clearTimeout(timer)
@@ -235,8 +254,8 @@ export default function SwiimNanoPage() {
               </p>
             </div>
 
-            {/* Google Form Section */}
-            <section id="google-form-section">
+            {/* Form Section */}
+            <section id="form-section">
               <div className="bg-white rounded-2xl shadow-md shadow-gray-200/70 p-6 sm:p-8">
                 <h2 className="text-base font-semibold text-gray-900 mb-2">
                   Formulaire sécurisé
@@ -259,20 +278,10 @@ export default function SwiimNanoPage() {
                   </div>
                 </div>
 
-                {/* Google Form Embed - Premium Crop + Scale */}
+                {/* Typeform Embed */}
                 <div className="mt-8 rounded-2xl bg-white p-3 sm:p-6 shadow-lg shadow-gray-200/70 border border-gray-100">
-                  <div className="relative overflow-auto rounded-xl h-[700px] sm:h-[750px] md:h-[800px]">
-                    <iframe
-                      src="https://docs.google.com/forms/d/e/1FAIpQLSe8VFynsOWsgQsCKpCu7hEOhTLFXZRub6sjdRdK3LpPqWle1w/viewform?embedded=true"
-                      className="w-full border-0"
-                      style={{
-                        transform: "scale(1)",
-                        transformOrigin: "top center",
-                        height: "1100px",
-                        minHeight: "1100px",
-                      }}
-                      title="Formulaire de récupération de ticket"
-                    />
+                  <div className="relative rounded-xl min-h-[500px]">
+                    <div data-tf-live="01KA42MZS3BF1QRRSJZXBYG5Y3"></div>
                   </div>
                 </div>
               </div>
